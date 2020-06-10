@@ -16,7 +16,8 @@ var app = Express();
 app.use(BodyParser.json()).use(morgan())
 
 app.use(BodyParser.urlencoded({ extended: true }));
-app.use("/posts", require("./routes/posts.js"));
+app.use("/note", require("./routes/note.js"));
+app.use("/user", require("./routes/user.js"));
 // const user = mongoose.model("user");
 
 app.listen(3005, () => {
