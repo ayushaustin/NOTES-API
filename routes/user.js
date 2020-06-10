@@ -14,8 +14,8 @@ router.get("/notes", async (req, res) => {
         res.send(notes);
 });
 
-router.put("/:notesId", async (req, res) => {
-           const post = await Post.findOneAndUpdate(
+router.put("/:userId", async (req, res) => {
+           const user = await User.findOneAndUpdate(
                {
                _id: req.params.notesId
            },
@@ -24,14 +24,14 @@ router.put("/:notesId", async (req, res) => {
                new: true,
                runValidators: true
            });
-               res.send(notes)               
+               res.send(user)               
     });
    
 
    
 router.delete("/:userId", async (req, res) => {
         try {
-            const post = await Post.findByIdAndRemove({
+            const user = await Post.findByIdAndRemove({
                 _id: req.params.userId
             });
                 res.send(user)
