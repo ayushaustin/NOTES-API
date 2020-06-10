@@ -4,24 +4,10 @@ const User = mongoose.model("user");
 const Notes = mongoose.model("notes")
 
 
-router.get("/", async (req, res) => { 
-        const user = await User.find({});
-        res.send(user);
-});
 
 router.get("/notes", async (req, res) => { 
         let notes = await Notes.find({});
         res.send(notes);
-});
-
-
-router.post("/", async(req, res ) => {
-         console.log(req.body);
-      const user = new User();
-      user.username = req.body.username;
-      await user.save();
-      res.send(user);   
-
 });
 
 router.post("/:userid/notes",async(req,res)=>{
