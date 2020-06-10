@@ -47,8 +47,7 @@ router.delete("/:postId", async (req, res) => {
 
 
 router.post("/", async(req, res ) => {
-         console.log(req.body);
-        
+         console.log(req.body);   
       const user = new User();
       post.content = req.body.content;
       await user.save();
@@ -65,7 +64,7 @@ router.post("/:postid/notes",async(req,res)=>{
     comment.user = user._id;
     await notes.save();
 
-    post.comments.push(comment._id);
+    user.comments.push(comment._id);
     await post.save();
 
     res.send(comment);
